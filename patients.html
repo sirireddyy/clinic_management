@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Patients - Clinic Management</title>
+    <link rel="stylesheet" href="./static/style.css" />
+
+</head>
+<body>
+    <header>
+        <h1>Clinic Management System</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/appointments">Appointments</a>
+            <a href="/patients" class="active">Patients</a>
+            <a href="/doctors">Doctors</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Patients</h2>
+        {% if patients %}
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr style="background-color: #0077b6; color: white;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">ID</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Name</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Age</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Gender</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Contact</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for patient in patients %}
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">{{ patient.id }}</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">{{ patient.name }}</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">{{ patient.age }}</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">{{ patient.gender }}</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">{{ patient.contact }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No patient records found.</p>
+        {% endif %}
+    </main>
+
+    <footer>
+        &copy; 2025 Clinic Management
+    </footer>
+</body>
+</html>

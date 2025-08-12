@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Appointments - Clinic Management</title>
+    <link rel="stylesheet" href="./static/style.css" />
+
+</head>
+<body>
+    <header>
+        <h1>Clinic Management System</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/appointments" class="active">Appointments</a>
+            <a href="/patients">Patients</a>
+            <a href="/doctors">Doctors</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Appointments</h2>
+        {% if appointments %}
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr style="background-color: #0077b6; color: white;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">ID</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Patient</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Doctor</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Date</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for appointment in appointments %}
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">{{ appointment.id }}</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">{{ appointment.patient }}</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">{{ appointment.doctor }}</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">{{ appointment.date }}</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">{{ appointment.time }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No appointments scheduled.</p>
+        {% endif %}
+    </main>
+
+    <footer>
+        &copy; 2025 Clinic Management
+    </footer>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Doctors - Clinic Management</title>
+    <link rel="stylesheet" href="./static/style.css" />
+
+</head>
+<body>
+    <header>
+        <h1>Clinic Management System</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/appointments">Appointments</a>
+            <a href="/patients">Patients</a>
+            <a href="/doctors" class="active">Doctors</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Doctors</h2>
+        {% if doctors %}
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr style="background-color: #0077b6; color: white;">
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">ID</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Name</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Specialization</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Experience</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Phone</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Email</th>
+                    <th style="padding: 0.5rem; border: 1px solid #ddd;">Clinic</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for doctor in doctors %}
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">{{ doctor.id }}</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">{{ doctor.name }}</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">{{ doctor.specialization }}</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">{{ doctor.experience }}</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">{{ doctor.phone }}</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">{{ doctor.email }}</td>
+                    <td style="padding: 0.5rem; border: 1px solid #ddd;">{{ doctor.clinic }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No doctor records found.</p>
+        {% endif %}
+    </main>
+
+    <footer>
+        &copy; 2025 Clinic Management
+    </footer>
+</body>
+</html>
